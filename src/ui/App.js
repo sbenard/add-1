@@ -1,38 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
-import { fillData, increment } from './utils'
-
-export const InputResult = ({ expectedResult }) => {
-  const [isResultVisible, setResultVisibility] = useState(false)
-  const [value, setValue] = useState('')
-  const onResultChange = ({ target }) => {
-    setValue(+target.value)
-    if (target.value.length === 4) {
-      setResultVisibility(true)
-    }
-  }
-
-  const isCorrect = expectedResult === value
-  const color = isCorrect ? 'green' : 'red'
-  return (
-    <>
-      <input
-        data-testid="input-result"
-        type="number"
-        placeholder="Valeur"
-        maxLength={4}
-        value={value}
-        onChange={onResultChange}
-      />
-      {isResultVisible && (
-        <p data-testid="input-solution" style={{ color }}>
-          {expectedResult}
-        </p>
-      )}
-    </>
-  )
-}
+import InputResult from './InputResult'
+import { fillData, increment } from '../libs/utils'
 
 let intervalID
 function App() {
@@ -65,7 +35,7 @@ function App() {
   }, [timer, rowsNumber])
 
   return (
-    <div className="App">
+    <div className="pa3 ma3 center bg-white shadow-2 w-50 App">
       <label>
         Rows :
         <input
@@ -87,7 +57,7 @@ function App() {
         />
       </label>
       {visible && (
-        <ul>
+        <ul className="list">
           {values &&
             values.map((result, index) => <li key={index}>{result}</li>)}
         </ul>

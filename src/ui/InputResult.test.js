@@ -3,11 +3,11 @@ import 'jest-dom/extend-expect'
 import { render, fireEvent } from 'react-testing-library'
 import 'react-testing-library/cleanup-after-each'
 
-import { InputResult } from './App'
+import { InputResult } from './InputResult'
 
 describe('Test InputResult component', () => {
   it('Default display', () => {
-    const { getByTestId, debug } = render(<InputResult expectedResult={1234} />)
+    const { getByTestId } = render(<InputResult expectedResult={1234} />)
     const input = getByTestId('input-result')
     expect(input).toHaveAttribute('maxLength', '4')
     expect(input).toHaveAttribute('type', 'number')
