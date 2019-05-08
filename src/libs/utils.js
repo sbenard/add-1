@@ -10,7 +10,8 @@ export const fillData = (rowsNumber = 4) => {
 }
 
 export const increment = value =>
-  value
+  value &&
+  String(value)
     .split('')
     .map(number => (+number === 9 ? 0 : +number + 1))
     .join('')

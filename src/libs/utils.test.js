@@ -11,6 +11,11 @@ describe('Test utilies functions', () => {
     expect(result2).toEqual(['2222', '2222', '2222', '2222'])
   })
 
+  it('work with different values', () => {
+    expect(increment(123)).toBe('234')
+    expect(increment()).toBe(undefined)
+  })
+
   it('test increment function', () => {
     expect(increment('1111')).toBe('2222')
     expect(increment('14020')).toBe('25131')
